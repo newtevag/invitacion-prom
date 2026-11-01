@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Invitación Despedida de PROM - Onceavo Grado</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:ital,wght@0,600;0,800;1,400&display=swap" rel="stylesheet">
+  
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #ffffff;
+      font-family: 'Montserrat', sans-serif;
+      color: #2c2c2c;
+      overflow-x: hidden;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+
+    #canvas-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .card-container {
+      position: relative;
+      z-index: 2;
+      width: 90%;
+      max-width: 650px;
+      padding: 55px 35px;
+      background: rgba(255, 255, 255, 0.92);
+      border: 1px solid rgba(192, 192, 192, 0.4);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
+      border-radius: 12px;
+      text-align: center;
+      opacity: 0;
+      transform: scale(0.95);
+      animation: fadeInCard 1.5s ease 2s forwards;
+    }
+
+    @keyframes fadeInCard {
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    .subtitle-top {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      font-size: 1.25rem;
+      letter-spacing: 4px;
+      color: #6c757d;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .invitation-text {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 1.15rem;
+      color: #555;
+      margin-bottom: 16px;
+    }
+
+    .main-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.6rem;
+      font-weight: 800;
+      letter-spacing: 2px;
+      color: #1a1a1a;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+      background: linear-gradient(45deg, #2c3e50, #95a5a6, #2c3e50);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .career-title {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 400;
+      font-size: 1.1rem;
+      letter-spacing: 3px;
+      color: #4a4a4a;
+      text-transform: uppercase;
+      margin-bottom: 25px;
+    }
+
+    .date-box {
+      border-top: 1px solid #dcdde1;
+      border-bottom: 1px solid #dcdde1;
+      padding: 14px 0;
+      margin: 22px 0;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      font-size: 1.15rem;
+      color: #2c3e50;
+      letter-spacing: 1px;
+    }
+
+    .footer-text {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.45rem;
+      font-weight: 600;
+      color: #222;
+      margin-top: 15px;
+    }
+
+    .deco-img {
+      position: absolute;
+      mix-blend-mode: multiply;
+      pointer-events: none;
+      opacity: 0;
+      animation: revealAndFloat 6s ease-in-out infinite alternate;
+      animation-delay: 2.3s;
+    }
+
+    .img-antifas-lado { top: -45px; left: -30px; width: 130px; }
+    .img-antifas-dos { top: -35px; right: -25px; width: 120px; }
+    .img-bola-disco { bottom: -45px; left: 20px; width: 105px; }
+    .img-globos { top: 42%; right: -55px; width: 115px; }
+    .img-mas-hombre { bottom: -35px; right: 20px; width: 110px; }
+    
+    .img-estrella-1 { top: 12%; left: 8%; width: 42px; }
+    .img-estrella-2 { bottom: 12%; right: 10%; width: 42px; }
+
+    @keyframes revealAndFloat {
+      0% {
+        opacity: 0;
+        transform: translateY(20px) rotate(-4deg);
+      }
+      25% {
+        opacity: 1;
+      }
+      50% {
+        transform: translateY(-8px) rotate(3deg);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(8px) rotate(-3deg);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <canvas id="canvas-bg"></canvas>
+
+  <div class="card-container">
+    <img src="imagenes/antifasdelado.jpeg" class="deco-img img-antifas-lado" alt="Antifaz">
+    <img src="imagenes/antifasdos.jpeg" class="deco-img img-antifas-dos" alt="Antifaz doble">
+    <img src="imagenes/boladisco.jpeg" class="deco-img img-bola-disco" alt="Bola de disco">
+    <img src="imagenes/globos.jpeg" class="deco-img img-globos" alt="Globos">
+    <img src="imagenes/masdehombre.jpeg" class="deco-img img-mas-hombre" alt="Máscara">
+    <img src="imagenes/estrellanegra.jpeg" class="deco-img img-estrella-1" alt="Estrella Negra 1">
+    <img src="imagenes/estrellanegra.jpeg" class="deco-img img-estrella-2" alt="Estrella Negra 2">
+
+    <div class="subtitle-top">ONCEAVO GRADO</div>
+    <div class="invitation-text">les invita a la</div>
+    <div class="main-title">DESPEDIDA DE PROM</div>
+    <div class="career-title">CARRERA DE INFORMÁTICA</div>
+    
+    <div class="date-box">
+      Viernes 6 de noviembre de 2026
+    </div>
+
+    <div class="footer-text">¡No faltes!</div>
+  </div>
+
+  <script>
+    const canvas = document.getElementById('canvas-bg');
+    const ctx = canvas.getContext('2d');
+
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas);
+
+    const pixels = [];
+    const pixelCount = 250;
+
+    class Pixel {
+      constructor() {
+        this.reset();
+      }
+
+      reset() {
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height;
+        this.targetX = canvas.width / 2 + (Math.random() - 0.5) * 550;
+        this.targetY = canvas.height / 2 + (Math.random() - 0.5) * 550;
+        this.size = Math.random() * 4 + 2;
+        this.speed = Math.random() * 0.04 + 0.015;
+        this.alpha = Math.random() * 0.8 + 0.2;
+        this.color = Math.random() > 0.3 ? '192, 192, 192' : '120, 120, 120';
+      }
+
+      update() {
+        this.x += (this.targetX - this.x) * this.speed;
+        this.y += (this.targetY - this.y) * this.speed;
+      }
+
+      draw() {
+        ctx.fillStyle = `rgba(${this.color}, ${this.alpha})`;
+        ctx.fillRect(this.x, this.y, this.size, this.size);
+      }
+    }
+
+    for (let i = 0; i < pixelCount; i++) {
+      pixels.push(new Pixel());
+    }
+
+    function drawSilverCurves() {
+      ctx.strokeStyle = 'rgba(192, 192, 192, 0.45)';
+      ctx.lineWidth = 1.5;
+
+      ctx.beginPath();
+      ctx.moveTo(0, canvas.height * 0.18);
+      ctx.bezierCurveTo(canvas.width * 0.35, canvas.height * 0.04, canvas.width * 0.65, canvas.height * 0.32, canvas.width, canvas.height * 0.12);
+      ctx.stroke();
+
+      ctx.beginPath();
+      ctx.moveTo(0, canvas.height * 0.88);
+      ctx.bezierCurveTo(canvas.width * 0.38, canvas.height * 0.68, canvas.width * 0.62, canvas.height * 0.96, canvas.width, canvas.height * 0.82);
+      ctx.stroke();
+    }
+
+    function animate() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      drawSilverCurves();
+      pixels.forEach(p => {
+        p.update();
+        p.draw();
+      });
+      requestAnimationFrame(animate);
+    }
+
+    animate();
+  </script>
+</body>
+</html>
